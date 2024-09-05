@@ -10,10 +10,8 @@ class HomeController extends Controller
         
         $data = array(
             'title' => 'Bienvenidos'
-            
         );
 
         $this->load_view('/home', $data);
     }
-
 }

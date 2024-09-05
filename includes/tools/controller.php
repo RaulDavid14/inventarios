@@ -1,17 +1,13 @@
 <?php
 class Controller
 {
-
-    public function load_view($view_path, $data = null)
+    public function load_view($view_path, $data = [])
     {
+        extract($data);
         
-        require_once ROOT_PATH."/views/".$view_path."/index.php";
-    }
-
-
-    public function load($view_path, $data = null)
-    {
-        require_once ROOT_PATH . '/views/' . $view_path. '/index.php';
+        ob_start();
+        require_once ROOT_PATH . '/views' . $view_path . '/index.php';
+        $body = ob_get_clean();
         
         require_once ROOT_PATH . '/views/layout/layout.php';
     }
